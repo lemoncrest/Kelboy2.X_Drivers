@@ -134,13 +134,14 @@ pcm.!default {
         type plug
         slave.pcm "SoftVolume"
 }
-
+```
 
 Con esto tendríamos nuestra imagen con el último Kernel sacado por Lemoncrest SL.
 
 En este punto ya solo quedaría configurar la WiFi. Podemos hacerlo colocando un archivo wpa_supplicant.conf en la partición /boot/ con los siguientes datos
 
-`country=es
+```{c}
+country=es
 update_config=1
 ctrl_interface=/var/run/wpa_supplicant
 
@@ -149,7 +150,7 @@ network={
  ssid="El_nombre_de_tu_wifi_exacta_como_la_ves_en_el_pc"
  psk="contraseña"
 }
-`
+```
 
 o mediante `sudo raspi-config`.
 
