@@ -10,7 +10,7 @@ disable_overscan=0
 #Actualizacion Kelboy2.0 release 1.02 con kernel 4.19.127_v7+
 
 #Activar una vez tengamos realizado el sudo depmod -a
-#kernel=Kernel5x4.img
+#kernel=Kernel5_4_77.img
 ###Necesita estar en off el audio base para que coja el I2S##
 dtparam=audio=off
 
