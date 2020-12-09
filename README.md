@@ -114,9 +114,9 @@ pcm.dmixer {
    }
 }
 
-ctl.dmixer {
-    type hw card 0
-}
+#ctl.dmixer {
+#    type hw card 0
+#}
 
 
 pcm.SoftVolume {
