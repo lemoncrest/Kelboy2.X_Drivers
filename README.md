@@ -4,6 +4,10 @@ Directorio con los releases de la kelboy2.X
 Este hardware necesita un total de 3 drivers, WiFi, BT y Fuel Gauge por I2C.
 
 
+- [Kelboy_2.X](#kelboy_2x)
+- [Instalación Guía](#instalación-guía)
+- [Compilaciones](#compilaciones)
+
 # Instalación Guía
 
 Para poder proceder con esta instalación de los archivos y configuraciones necesitamos una imagen nueva y un teclado.
@@ -12,6 +16,9 @@ El primer paso es copiar solo los archivos /boot/config.txt y /boot/dtblob.bin a
 
 Ahora la imagen hará lo oportuno en su primer arranque, el resize y demás que tenga configurado.
 
+
+
+---
 **Opcional**
 Para poder poner el teclado de manera adecuada para poderse utilizar debemos realizar 
 `sudo nano /etc/default/keyboard
@@ -24,9 +31,8 @@ En la línea número 1, luego a la 5, para, por último pulsar en la línea 2. N
 
 Aquí debemos cambiar la línea **XKBLAYOUT="esto_a_nuestra_region"**, de manera que para que esté en español el teclado en el siguiente reinicio debería quedar como **XKBLAYOUT="es"**
 
-**Fin Opcional**
 
-
+---
 
 Una realizado y terminado los procesos anteriormente descritos, apagaremos la kelboy 2.X con el botón y el comando 
 `sudo shuthdown -h now
@@ -157,4 +163,17 @@ o mediante `sudo raspi-config`.
 
 
 
+# Compilaciones
 
+Actualmente tenemos dos compilaciones del Kernel 5.4.77, una con el Kernel space por defecto de Raspberry y otro con el modificado a 3G/1G. Esto queire decir que el Kernel Space será de 1G y el user Space de 3G.
+
+Esto es requerido para ciertos programas de soporte y emulación, por ejemplo Wine.
+
+**Kernels Kelboy2.X**
+- Kernel 5.4.77: Raspberry pi 32 Bits Kernel
+- Kernel 5.4.77 3G/1G: Raspberry pi 32 Bits Kernel user Space 3G, Kernel Space 1G.
+
+
+#License
+
+Pendiente
