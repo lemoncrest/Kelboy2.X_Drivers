@@ -1,0 +1,118 @@
+# For more options and information see
+# http://rpf.io/configtxt
+# Some settings may impact device functionality. See link above for details
+
+# uncomment if you get no picture on HDMI for a default "safe" mode
+#hdmi_safe=1
+
+overscan_scale=1
+disable_overscan=0
+### KERNEL ###
+kernel=Kernel5x4x77.img
+### END ###
+
+### AUDIO ##
+dtparam=audio=off
+
+### END ###
+
+### HDMI ###
+hdmi_force_hotplug=1
+#hdmi_drive=2
+#hdmi_ignore_edid=0xa5000080
+#config_hdmi_boost=4
+hdmi_group=2 #en 2 es como podemos selecionar el modo
+hdmi_mode=82 #esto es 1080p
+max_framebuffers=2
+
+### END ###
+
+#dtoverlay=vc4-fkms-v3d
+#  desktop display will default to the LCD (fb0)
+# This will force the specified display to be the first in the list, i.e. /dev/fb0
+# Actually this is the full set:
+# MAIN_LCD  0
+# AUX_LCD   1
+# HDMI0     2
+# SDTV      3
+# HDMI1 is only availabe on RPi4
+# HDMI1     7
+#con esto en 0 indicando el display SDL ve los dos displays
+### BOOT ###
+disable_splash=1
+boot_delay=0
+
+### END###
+
+### DISPLAY ###
+framebuffer_priority=0
+overscan_scale=1
+disable_overscan=0
+overscan_left=2
+overscan_right=2
+overscan_top=2
+overscan_bottom=8
+
+#### GPU ####
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=256
+
+#### CONFIG ####
+dtoverlay=dpi24
+enable_dpi_lcd=1
+dpi_group=2
+dpi_mode=87
+dpi_output_format=0x70017
+
+#### 320 ####
+hdmi_timings=320 0 8 4 0 240 0 8 4 0 0 0 0 60 0 9600000 1
+display_lcd_rotate=2
+
+#### 640 ####
+#hdmi_timings=640 1 32 48 88 480 1 13 3 32 0 0 0 60 0 32000000 1
+#display_lcd_rotate=0
+
+#### LCD_DEFAULT ####
+display_default_lcd=1
+
+
+### END ###
+
+### OVERLAYS ###
+
+#### AUDIO ####
+dtoverlay=i2s28
+dtoverlay=hifiberry-dac
+dtoverlay=i2s-mmap
+
+#### FUELGAUGE-I2C
+dtoverlay=i2c1,pins_44_45=1
+dtparam=i2c_arm=on
+dtparam=i2c_arm_baudrate=400000
+dtparam=i2c1=on
+dtoverlay=max1726x
+
+#### WIFI ####
+dtoverlay=sdio34,poll_once=off,sdio_overclock=20
+gpio=42=op,dh
+dtoverlay=gpio-poweroff,active_low,gpiopin=42
+
+#### BACKLIGHT ####
+dtoverlay=gpio-poweroff,active_low,gpiopin=40
+gpio=40=op,dh
+dtoverlay=pwm,pin=40,func=4
+
+#### FAN ####
+dtoverlay=pwm,pin=41,func=4
+
+#### SHUTDOWN ####
+dtoverlay=gpio-shutdown,active_low=1,gpio_pin=33,gpio_pull=up
+
+#### EEPROM ####
+dtoverlay=cat24m01
+
+### END ###
+
+#EOF#
+
