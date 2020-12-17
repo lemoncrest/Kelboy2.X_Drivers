@@ -11,10 +11,6 @@ disable_overscan=0
 kernel=Kernel5x4x77.img
 ### END ###
 
-### AUDIO ##
-dtparam=audio=off
-
-### END ###
 
 ### HDMI ###
 hdmi_force_hotplug=1
@@ -27,17 +23,6 @@ max_framebuffers=2
 
 ### END ###
 
-#dtoverlay=vc4-fkms-v3d
-#  desktop display will default to the LCD (fb0)
-# This will force the specified display to be the first in the list, i.e. /dev/fb0
-# Actually this is the full set:
-# MAIN_LCD  0
-# AUX_LCD   1
-# HDMI0     2
-# SDTV      3
-# HDMI1 is only availabe on RPi4
-# HDMI1     7
-#con esto en 0 indicando el display SDL ve los dos displays
 ### BOOT ###
 disable_splash=1
 boot_delay=0
@@ -74,8 +59,19 @@ display_lcd_rotate=2
 #display_lcd_rotate=0
 
 #### LCD_DEFAULT ####
-display_default_lcd=1
+display_default_lcd=0
 
+
+#  desktop display will default to the LCD (fb0)
+# This will force the specified display to be the first in the list, i.e. /dev/fb0
+# Actually this is the full set:
+# MAIN_LCD  0
+# AUX_LCD   1
+# HDMI0     2
+# SDTV      3
+# HDMI1 is only availabe on RPi4
+# HDMI1     7
+#con esto en 0 indicando el display SDL ve los dos displays
 
 ### END ###
 
@@ -85,6 +81,7 @@ display_default_lcd=1
 dtoverlay=i2s28
 dtoverlay=hifiberry-dac
 dtoverlay=i2s-mmap
+dtparam=audio=off
 
 #### FUELGAUGE-I2C
 dtoverlay=i2c1,pins_44_45=1
