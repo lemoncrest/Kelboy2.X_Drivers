@@ -134,6 +134,7 @@ drivers/pwm/pwm-bcm2835.ko
 drivers/pwm/pwm-pca9685.ko
 drivers/video/backlight/backlight.ko
 drivers/video/backlight/gpio_backlight.ko
+drivers/video/backlight/pwm_bl.ko
 drivers/video/backlight/rpi_backlight.ko
 drivers/video/fbdev/core/sysfillrect.ko
 drivers/video/fbdev/core/syscopyarea.ko
@@ -1617,8 +1618,3 @@ lib/ts_kmp.ko
 lib/ts_bm.ko
 lib/ts_fsm.ko
 lib/lru_cache.ko
-lib/extra/bt8xxx.ko
-lib/extra/sd8xxx.ko
-lib/extra/mlan.ko
-lib/extra/max1726x_battery.ko
-
