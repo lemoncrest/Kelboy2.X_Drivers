@@ -1,0 +1,50 @@
+/dts-v1/;
+/plugin/;
+
+//https://www.kernel.org/doc/Documentation/devicetree/bindings/pinctrl/brcm,bcm2835-gpio.txt
+
+/ {
+    compatible = "brcm,bcm2835", "bcrm,bcm2708";
+
+        fragment@0 {
+                target = <&gpio>;
+                __overlay__ {
+                        pwm_pins: pwm_pins {
+                                brcm,pins = <40>;
+                                brcm,function = <4>;//alt0 to select PWM0
+                        };
+                };
+        };
+
+
+        fragment@1 {
+                target = <&pwm>;
+                frag1: __overlay__ {
+                        pinctrl-names = "default";
+                        pinctrl-0 = <&pwm_pins>;
+                        assigned-clock-rates = <100000000>;
+                        status = "okay";
+                };
+        };
+
+        fragment@2 {
+                target-path = "/";
+                __overlay__ {
+                        kelboy_pwm_backlight: kelboy_pwm_backlight {
+                                compatible = "pwm-backlight";
+                                brightness-levels = <0 40 75 111 147 183 219 255>;
+                                default-brightness-level = <6>;
+                                pwms = <&pwm 0 6250000>;
+                                #enable-gpios = <&gpio 40 0>;
+                                power-supply = <&vdd_3v3_reg>;
+                                status = "okay";
+                        };
+                };
+        };
+
+        __overrides__ {
+                pin   = <&pwm_pins>,"brcm,pins:0";
+                func  = <&pwm_pins>,"brcm,function:0";
+                clock = <&frag1>,"clock-frequency:0";
+        };
+};

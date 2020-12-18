@@ -96,9 +96,11 @@ gpio=42=op,dh
 dtoverlay=gpio-poweroff,active_low,gpiopin=42
 
 #### BACKLIGHT ####
-dtoverlay=gpio-poweroff,active_low,gpiopin=40
-gpio=40=op,dh
-dtoverlay=pwm,pin=40,func=4
+#dtoverlay=gpio-poweroff,active_low,gpiopin=40
+#gpio=40=op,dh
+#dtoverlay=pwm,pin=40,func=4
+dtoverlay=kelboy_backlight
+
 
 #### FAN ####
 dtoverlay=pwm,pin=41,func=4

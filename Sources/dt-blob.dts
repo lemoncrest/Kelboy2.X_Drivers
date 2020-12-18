@@ -1,0 +1,162 @@
+/dts-v1/;
+
+/ {
+
+	videocore {
+
+		pins_cm3 {
+
+			pin_config {
+
+				pin@default {
+					polarity = "active_high";
+					termination = "pull_down";
+					startup_state = "inactive";
+					function = "input";
+				};
+
+				pin@p33 {
+					function = "input";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+				pin@p40 {
+					function = "pwm";
+					termination = "no_pulling";
+					drive_strength_mA = < 16 >;
+				};
+
+				pin@p48 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p49 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p50 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p51 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p52 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p53 {
+					function = "sdcard";
+					termination = "pull_up";
+					drive_strength_mA = < 0x08 >;
+				};
+
+				pin@p128 {
+					function = "input";
+					termination = "no_pulling";
+					polarity = "active_low";
+				};
+
+				pin@p129 {
+					function = "output";
+					termination = "no_pulling";
+					polarity = "active_low";
+				};
+			};
+
+			pin_defines {
+				pin_define@PWM0 {
+					type = "internal";
+					number = <40>;
+				};
+				pin_define@HDMI_CONTROL_ATTACHED {
+					type = "external";
+					number = < 0x00 >;
+				};
+
+				pin_define@EMMC_ENABLE {
+					type = "external";
+					number = < 0x01 >;
+				};
+
+				pin_define@NUM_CAMERAS {
+					type = "internal";
+					number = < 0x00 >;
+				};
+
+				pin_define@POWER_LOW {
+					type = "absent";
+				};
+
+				pin_define@LEDS_DISK_ACTIVITY {
+					type = "absent";
+				};
+
+				pin_define@LAN_RUN {
+					type = "absent";
+				};
+
+				pin_define@SMPS_SDA {
+					type = "internal";
+					number = < 0x2e >;
+				};
+
+				pin_define@SMPS_SCL {
+					type = "internal";
+					number = < 0x2f >;
+				};
+
+				pin_define@ETH_CLK {
+					type = "absent";
+				};
+
+				pin_define@WL_LPO_CLK {
+					type = "absent";
+				};
+
+				pin_define@USB_LIMIT_1A2 {
+					type = "absent";
+				};
+
+				pin_define@SIO_1V8_SEL {
+					type = "absent";
+				};
+
+				pin_define@PWML {
+					type = "absent";
+				};
+
+				pin_define@PWMR {
+					type = "absent";
+				};
+
+				pin_define@SAFE_MODE {
+					type = "absent";
+				};
+
+				pin_define@SD_CARD_DETECT {
+					type = "absent";
+				};
+
+				pin_define@ID_SDA {
+					type = "absent";
+				};
+
+				pin_define@ID_SCL {
+					type = "absent";
+				};
+			};
+		};
+	};
+};
