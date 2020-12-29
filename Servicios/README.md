@@ -76,5 +76,42 @@ WantedBy=poweroff.target halt.target
 Una vez finalizado debemos activarlo
 
 `
-sudo systemctl enable i2c_shutdown
+sudo systemctl enable i2c_shutdown.service
+`
+
+#Servicio para el control del FAN
+
+Igual que en el servicio anterior debemos crear el archivo de servicio para ello
+
+
+`
+sudo nano /etc/systemd/system/fan_kelboy.service
+`
+
+Posteriormente debemos escribir dentro del archivo lo siguiente.
+
+```{c}
+[Unit]
+Description=Fan control service Kelboy
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/bash /home/pi/kelboy-launcher/bin/fan.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
+Por último lo habilitamos si tenemos un fan de la manera :
+
+`
+sudo systemctl enable fan_kelboy.service
+`
+
+Para hacer que este servicio se arranque tenemos dos opciones, habilitarlo manualmente o reinicar la consola, la manera de habilitarlo manualmente es:
+
+`
+sudo systemctl start fan_kelboy.service
 `
