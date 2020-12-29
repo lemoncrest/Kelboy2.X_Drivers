@@ -75,9 +75,10 @@ WantedBy=poweroff.target halt.target
 
 Una vez finalizado debemos activarlo
 
-`
+```{c}
 sudo systemctl enable i2c_shutdown.service
-`
+sudo systemctl start i2c_shutdown.service
+```
 
 #Servicio para el control del FAN
 
